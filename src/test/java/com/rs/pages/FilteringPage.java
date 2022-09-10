@@ -15,13 +15,13 @@ public class FilteringPage {
     @FindBy(xpath = "(//a[@class='card_KqPyHJul top-category-card'])[1]")
     public WebElement adhesive;
 
-    @FindBy(xpath ="//button[@id='btnSearch']")
+    @FindBy(xpath ="//button[@class='Box-sc-1a4tiu7-0 Flex-sc-ftxd62-0 SearchBar__SearchBarSubmitButton-sc-okj0vs-1 fkPizT']")
     public WebElement enter;
 
     @FindBy(xpath = "//div[@id='terminalNodeFilter-accordion-title-0']")
     public WebElement brand ;
 
-    @FindBy(xpath = "//p[.='GORILLA GLUE EUROPE LTD']")
+    @FindBy(xpath = "//p[contains(text(),'GORILLA GLUE EUROPE LTD')]")
     public WebElement gorillaGlue;
 
     @FindBy(xpath = "(//span[.='Apply filters'])[2]")
