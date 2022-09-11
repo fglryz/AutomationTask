@@ -5,7 +5,7 @@ Feature: Purchase Functionality of RS Application
   Background:
   Given User is on homepage
 
-  Scenario: Adding product to cart by choosing Browse the shop option
+  Scenario: Adding first product to cart by choosing product categories on the Homepage
 
     When User clicks Contactors
     And User clicks to Add button under the first product
@@ -13,7 +13,7 @@ Feature: Purchase Functionality of RS Application
     Then User sees  chosen product in the cart
 
 
-  Scenario: Adding product to cart by Browse option under the RS logo
+  Scenario: Adding second product to cart by Browse dropdown under the RS logo
 
     When User clicks on Browse option
     And User clicks on Electrical,Automation&Cables
@@ -24,20 +24,6 @@ Feature: Purchase Functionality of RS Application
     And User clicks to Cart button
     Then User sees chosen product in the cart
 
-    @wip
-    Scenario Outline: Searching products using Search Box and Filtering Functionality
-
-   When User types adhesives to search box
-   Then User sees Adhesives under top matching categories
-   And User clicks on Adhesives
-   And User clicks on Brand
-   And User clicks on GORILLA GLUE EUROPE LTD (3)
-   And User clicks Apply Filters
-   Then User sees "<Brand>" and "<Adhesive Type>"
-
-      Examples: The Brand and Adhesive Type used in the test are following
-        |Brand                   | Adhesive Type   |
-        |GORILLA GLUE EUROPE LTD | Contact Adhesive|
 
 
 
