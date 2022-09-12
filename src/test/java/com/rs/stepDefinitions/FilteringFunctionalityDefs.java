@@ -108,8 +108,25 @@ public class FilteringFunctionalityDefs {
         Assert.assertEquals(product,filteringPage.product.getText());
 
 
+    }
+
+    @When("User clicks on {string} and {string} and {string}")
+    public void user_clicks_on_and_and(String string, String string2, String string3) {
+
+
+
 
     }
+    @Then("User sees {string} and {string} and {string}")
+    public void user_sees_and_and(String string, String string2, String string3) {
+
+
+
+    }
+
+
+
+
 
 
 
