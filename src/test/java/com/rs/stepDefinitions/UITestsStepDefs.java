@@ -1,10 +1,12 @@
 package com.rs.stepDefinitions;
 
 
+import com.github.javafaker.Faker;
 import com.rs.pages.BasePage;
 import com.rs.utilities.BrowserUtils;
 import com.rs.utilities.ConfigurationReader;
 import com.rs.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +17,7 @@ public class UITestsStepDefs {
 
     BasePage basePage = new BasePage();
     String actualNameOfFirstProduct;
-
+    Faker faker = new Faker();
 
     @Given("User is on homepage")
     public void user_is_on_homepage() {
@@ -40,6 +42,7 @@ public class UITestsStepDefs {
 
         BrowserUtils.waitFor(5);
         basePage.cart.click();
+        basePage.noThanks.click();
     }
     @Then("User sees  chosen product in the cart")
     public void user_sees_chosen_product_in_the_cart() {
@@ -83,6 +86,22 @@ public class UITestsStepDefs {
 
 
     }
+
+    @And("User clicks on Guest Checkout")
+    public void userClicksOnGuestCheckout() {
+      basePage.checkOut.click();
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
 
 

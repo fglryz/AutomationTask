@@ -67,38 +67,45 @@ public class FilteringFunctionalityDefs {
     @When("User toggles  MPN")
     public void user_toggles_mpn() {
 
+     filteringPage.mpn.click();
     }
     @When("User types {int} in search box")
     public void user_types_in_search_box(Integer int1) {
+    filteringPage.searchBox.sendKeys("702060");
+    filteringPage.enter.click();
 
     }
-    @Then("User sees top matching categories")
-    public void user_sees_top_matching_categories() {
 
-    }
+
     @Then("User clicks on Temperature Controllers box")
     public void user_clicks_on_temperature_controllers_box() {
 
-    }
-    @Then("User clicks on Temperature Controllers")
-    public void user_clicks_on_temperature_controllers() {
+       filteringPage.box.click();
 
     }
+
     @Then("User clicks on  Size")
     public void user_clicks_on_size() {
+
+      filteringPage.clickOnSize();
 
     }
     @And("User clicks on {string}")
     public void userClicksOn(String arg0) {
+        BrowserUtils.waitFor(5);
+      filteringPage.sizeOpt();
 
 
     }
     @Then("User clicks on Apply Filters")
     public void user_clicks_on_apply_filters() {
+        filteringPage.applyFilters.click();
 
     }
-    @Then("User locates one product relevant to search and filter on the page")
-    public void user_locates_one_product_relevant_to_search_and_filter_on_the_page() {
+    @Then("User locates {string} product on the page")
+    public void user_locates_product_on_the_page(String product) {
+
+        Assert.assertEquals(product,filteringPage.product.getText());
 
 
 

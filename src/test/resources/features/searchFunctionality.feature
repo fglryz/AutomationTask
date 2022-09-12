@@ -16,14 +16,15 @@ Feature: Search functionality with different filter options
       |Brand   |
       |Raytech |
 
+  @wip
     Scenario: Searching products using MPN
       When User toggles  MPN
       And User types 702060 in search box
-      Then User sees top matching categories
       And User clicks on Temperature Controllers box
-      Then User clicks on Temperature Controllers
       And User clicks on  Size
       And User clicks on "109 x 22.5mm"
       And User clicks on Apply Filters
-      Then User locates one product relevant to search and filter on the page
+      Then User locates "Jumo iTRON PID Temperature Controller, 109 x 22.5mm, 2 Output Relay, 20 → 53 V ac/dc Supply Voltage" product on the page
+
+
 

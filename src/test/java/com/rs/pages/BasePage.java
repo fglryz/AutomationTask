@@ -16,7 +16,7 @@ public class BasePage {
         @FindBy(xpath = "//a[@title='Contactors']")
         public WebElement Contactors;
 
-        @FindBy(xpath = "//div[@class='Box-sc-1a4tiu7-0 MiniBasket__CartCount-sc-5l8nlu-0 MiniBasket__DesktopCartCount-sc-5l8nlu-2 mjZqt']")
+        @FindBy(xpath = "(//div[@data-testid='add-to-basket-success-cart'][1])")
         public WebElement cart;
 
 
@@ -55,6 +55,19 @@ public class BasePage {
 
        @FindBy(xpath = "//div[.='Contactors']")
         public WebElement contactors2;
+
+   //-----------------------------------------
+
+    @FindBy(xpath = "//button[contains(text(),'Guest Checkout')]")
+    public WebElement checkOut;
+
+    @FindBy(xpath ="//span[contains(text(),'Secure checkout')]" )
+    public WebElement secureCheckOut;
+
+
+
+
+
 
 
     }

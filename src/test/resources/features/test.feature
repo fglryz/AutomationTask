@@ -11,6 +11,7 @@ Feature: Purchase Functionality of RS Application
     And User clicks to Add button under the first product
     And User clicks to Cart button
     Then User sees  chosen product in the cart
+    And User clicks on Guest Checkout
 
 
   Scenario: Adding second product to cart by Browse dropdown under the RS logo
