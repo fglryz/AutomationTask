@@ -63,6 +63,47 @@ public class FilteringPage {
     @FindBy(xpath="//div[@data-qa='product-tile-title']")
     public WebElement product ;
 
+    @FindBy(xpath="//*[contains(text(),'Number of Poles')]")
+    public WebElement poles ;
+
+    @FindBy(xpath="(//p[@class='sc-csuQGl hpLYIn'])[1]")
+    public WebElement abb ;
+
+    @FindBy(xpath="(//p[@class='sc-csuQGl hpLYIn'])[101]")
+    public WebElement firstOption;
+
+    @FindBy(xpath = "//div[@data-qa='applied-filter-panel-body-4294957372']")
+    public WebElement verifyABB;
+
+    @FindBy(xpath = "//div[@data-qa='applied-filter-panel-body-4294885776']")
+    public WebElement verify1;
+
+
+
+
+    public void clickOnBrandTwo() {
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);
+
+        if (popUp.isDisplayed()){
+            popUp.click();
+            brand.click();
+        } else if (!(popUp.isDisplayed())) {
+            brand.click();
+        }
+    }
+
+
+    public void polesMethod() {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true)", poles);
+        firstOption.click();
+        BrowserUtils.waitFor(1);
+
+    }
+
+
     public void clickOnSize() {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(),5);

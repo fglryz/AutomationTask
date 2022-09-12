@@ -97,6 +97,7 @@ public class FilteringFunctionalityDefs {
 
 
     }
+
     @Then("User clicks on Apply Filters")
     public void user_clicks_on_apply_filters() {
         filteringPage.applyFilters.click();
@@ -110,23 +111,20 @@ public class FilteringFunctionalityDefs {
 
     }
 
-    @When("User clicks on {string} and {string} and {string}")
-    public void user_clicks_on_and_and(String string, String string2, String string3) {
 
+    @When("User clicks on {string} and {string}")
+    public void user_clicks_on_and(String string, String string2) {
+        filteringPage.clickOnBrandTwo();
+        filteringPage.abb.click();
+    }
+    @Then("User sees {string} and {string}")
+    public void user_sees_and(String brand, String poles) {
 
+    Assert.assertEquals(brand,filteringPage.verifyABB.getText());
+    Assert.assertEquals(poles,filteringPage.verify1.getText());
 
 
     }
-    @Then("User sees {string} and {string} and {string}")
-    public void user_sees_and_and(String string, String string2, String string3) {
-
-
-
-    }
-
-
-
-
 
 
 

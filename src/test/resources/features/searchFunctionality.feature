@@ -30,21 +30,20 @@ Feature:Filter Functionality of RS company
 
 
     @wip
-    Scenario Outline: Searching products using Browse option and applying three filters
+    Scenario Outline: Searching products using Browse option and applying two filters
 
       When User clicks on Browse option
       And User clicks on Electrical,Automation&Cables
       And User clicks on Automation&Control Gear
       And User clicks on Contactors&Auxiliary Contactors
       And User clicks on Contactors
-      And User clicks on Brand
-      And User clicks on "<Brand>" and "<Number of poles>" and "<Contact Current Rating>"
+      And User clicks on "<Brand>" and "<Number of poles>"
       And User clicks Apply Filters
-      Then User sees "<Brand>" and "<Number of poles>" and "<Contact Current Rating>"
+      Then User sees "<Brand>" and "<Number of poles>"
 
-      Examples:
-        | Brand | Number of poles | Contact Current Rating |
-        |  ABB  |      1                |   35 A           |
+      Examples: Brand and Number of poles used in the test are as followed
+        | Brand | Number of poles |
+        |  ABB  |      1          |
 
 
 
