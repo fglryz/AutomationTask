@@ -3,7 +3,7 @@
    Background:
     Given the user navigates to main page
 @wip
-  Scenario: Verify three items can be added to cart
+  Scenario: Verify three items can be added to cart and manipulate them
     When User clicks "T-SHIRTS" tab
     And User hovers over Faded Short Sleeve T Shirt
     When User clicks MORE button
