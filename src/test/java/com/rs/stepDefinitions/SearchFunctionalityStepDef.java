@@ -1,6 +1,9 @@
 package com.rs.stepDefinitions;
 
 
+import com.rs.pages.DressPage;
+import com.rs.pages.ShoppingChartPage;
+import com.rs.pages.SummerDressPage;
 import com.rs.pages.TShirtPage;
 import com.rs.utilities.BrowserUtils;
 import com.rs.utilities.ConfigurationReader;
@@ -13,8 +16,13 @@ import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.management.DescriptorRead;
+
 public class SearchFunctionalityStepDef {
     TShirtPage tShirtPage = new TShirtPage();
+    DressPage dressPage=new DressPage();
+    SummerDressPage summerDressPage=new SummerDressPage();
+    ShoppingChartPage shoppingChartPage=new ShoppingChartPage();
     Actions actions = new Actions(Driver.getDriver());
 
 
@@ -33,18 +41,19 @@ public class SearchFunctionalityStepDef {
         BrowserUtils.hover(tShirtPage.hoverTShirt);
 
     }
-    @When("User adds MORE button")
-    public void userAddsMOREButton() {
+    @When("User clicks MORE button")
+    public void userClicksMOREButton() {
         tShirtPage.moreButton.click();
         BrowserUtils.sleep(10);
     }
+
     @And("selects one, M and Blue of the T-Shirt")
     public void selectsOneMAndBlueOfTheTShirt() {
         tShirtPage.quantity.clear();
         BrowserUtils.sleep(10);
        tShirtPage.quantity.sendKeys("1");
         BrowserUtils.sleep(10);
-        Select select=new Select(tShirtPage.size);
+        Select select=new Select(dressPage.size);
         BrowserUtils.sleep(10);
         select.selectByVisibleText("M");
         BrowserUtils.sleep(10);
@@ -56,44 +65,100 @@ public class SearchFunctionalityStepDef {
     @When("User clicks the add to cart button")
     public void userClicksTheAddToCartButton() {
         tShirtPage.addToChart.click();
+        BrowserUtils.sleep(10);
     }
-    @And("User clicks continue shopping button")
+    @When("User clicks Continue Shopping button")
     public void userClicksContinueShoppingButton() {
         tShirtPage.continueShoppingButton.click();
     }
 
-
-
-
     @When("User clicks Dress button")
     public void userClicksDressButton() {
-        tShirtPage.DressButton.click();
+        dressPage.dressesTab.click();
         BrowserUtils.sleep(10);
 
     }
-
     @When("User clicks Evening Dress")
     public void userClicksEveningDress() {
-        BrowserUtils.sleep(5);
-       tShirtPage.eveningDress.click();
+        BrowserUtils.sleep(10);
+        tShirtPage.eveningDress.click();
         BrowserUtils.sleep(15);
     }
+    @When("User hovers over Printed Dress")
+    public void userHoversOverPrintedDress() {
+        BrowserUtils.hover(dressPage.hoverprintedDress);
+        BrowserUtils.sleep(10);
+        dressPage.addToChart.click();
+        BrowserUtils.sleep(15);
+        dressPage.continueShoppingButton.click();
+    }
+    @When("User clicks Dress Tab")
+    public void userClicksDressTab() {
+        summerDressPage.dressesTab.click();
+    }
 
-    @When("User clicks the S size")
-    public void userClicksTheSSize() {
-        tShirtPage.SSize.click();
+
+    @When("User clicks Summer Dress")
+    public void userClicksSummerDress() {
+    BrowserUtils.sleep(10);
+    summerDressPage.summerDresses.click();
+    BrowserUtils.sleep(10);
+    }
+
+    @When("User hovers Printed Summer Dress")
+    public void userHoversPrintedSummerDress() {
+        BrowserUtils.hover(summerDressPage.hoverPrintedSummerDress);
+        BrowserUtils.sleep(10);
+    }
+
+
+    @When("User selects one, M and Orange of the T-Shirt")
+    public void userSelectsOneMAndOrangeOfTheTShirt() {
+        Select select=new Select(summerDressPage.size);
+        select.selectByVisibleText("M");
+        BrowserUtils.sleep(10);
+        summerDressPage.dressColor.click();
+    }
+
+    @When("User clicks the add to chart button")
+    public void userClicksTheAddToChartButton() {
+        summerDressPage.addToChart.click();
+        BrowserUtils.sleep(10);
+    }
+
+    @When("User clicks proceed to checkout button")
+    public void userClicksProceedToCheckoutButton() {
+        shoppingChartPage.proceedCheckout.click();
+    }
+
+    @When("User removes Printed Dress")
+    public void userRemovesPrintedDress() {
+        shoppingChartPage.removePrintedDress.click();
         BrowserUtils.sleep(10);
 
     }
 
-    @When("User clicks the Beige colour")
-    public void userClicksTheBeigeColour() {
-        tShirtPage.BeigeColor.click();
-        BrowserUtils.sleep(10);
+    @When("User add the a Faded Short Sleeve T-Shirts")
+    public void userAddTheAFadedShortSleeveTShirts() {
+        shoppingChartPage.addButton1.click();
     }
 
+    @Then("User sees the total price  of Printed Dress")
+    public void userSeesTheTotalPriceOfPrintedDress() {
+        shoppingChartPage.PSummerDressPrize.isDisplayed();
+        BrowserUtils.sleep(5);
 
+    }
 
+    @Then("User sees the total price  of Fladed Short Sleeves TShirt")
+    public void userSeesTheTotalPriceOfFladedShortSleevesTShirt() {
+        shoppingChartPage.TshirtPrize.isDisplayed();
+        BrowserUtils.sleep(5);
+    }
 }
+
+
+
+
 
 
