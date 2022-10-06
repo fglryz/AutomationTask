@@ -1,102 +1,99 @@
 package com.rs.stepDefinitions;
 
-import com.rs.pages.SearchingPage;
+
+import com.rs.pages.TShirtPage;
 import com.rs.utilities.BrowserUtils;
 import com.rs.utilities.ConfigurationReader;
 import com.rs.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class SearchFunctionalityStepDef {
-    SearchingPage searchingPage=new SearchingPage();
-    Actions actions=new Actions(Driver.getDriver());
+    TShirtPage tShirtPage = new TShirtPage();
+    Actions actions = new Actions(Driver.getDriver());
 
-    @Given("User is on homepage")
-    public void userIsOnHomepage() {
+
+    @Given("the user navigates to main page")
+    public void theUserNavigatesToMainPage() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
     }
 
-
-    @When("User clicks {string} button")
-    public void userClicksButton(String Tshirt) {
-        searchingPage.TShirtButton.click();
+    @When("User clicks {string} tab")
+    public void userClicksTab(String arg0) {
+        tShirtPage.TShirtButton.click();
         BrowserUtils.sleep(10);
     }
-    @When("User clicks the {string} size")
-    public void userClicksTheSize(String Msize) {
-        searchingPage.MSize.click();
-        BrowserUtils.sleep(5);
-    }
-    @When("User clicks the {string} colour radio button")
-    public void userClicksTheColourRadioButton(String Blue) {
+    @And("User hovers over Faded Short Sleeve T Shirt")
+    public void userHoversOverFadedShortSleeveTShirt() {
+        BrowserUtils.hover(tShirtPage.hoverTShirt);
 
-        searchingPage.BlueColor.click();
+    }
+    @When("User adds MORE button")
+    public void userAddsMOREButton() {
+        tShirtPage.moreButton.click();
         BrowserUtils.sleep(10);
+    }
+    @And("selects one, M and Blue of the T-Shirt")
+    public void selectsOneMAndBlueOfTheTShirt() {
+        tShirtPage.quantity.clear();
+        BrowserUtils.sleep(10);
+       tShirtPage.quantity.sendKeys("1");
+        BrowserUtils.sleep(10);
+        Select select=new Select(tShirtPage.size);
+        BrowserUtils.sleep(10);
+        select.selectByVisibleText("M");
+        BrowserUtils.sleep(10);
+        tShirtPage.color.click();
+
+
+
     }
     @When("User clicks the add to cart button")
     public void userClicksTheAddToCartButton() {
-        BrowserUtils.sleep(5);
-        searchingPage.addChartButton.click();
+        tShirtPage.addToChart.click();
     }
-    @When("clicks {string} button")
-    public void clicksButton(String ContinueShopping) {
-        searchingPage.continueShoppingButton.click();
-        BrowserUtils.sleep(5);
+    @And("User clicks continue shopping button")
+    public void userClicksContinueShoppingButton() {
+        tShirtPage.continueShoppingButton.click();
+    }
 
 
-    }
 
 
     @When("User clicks Dress button")
     public void userClicksDressButton() {
-        searchingPage.DressButton.click();
+        tShirtPage.DressButton.click();
+        BrowserUtils.sleep(10);
+
     }
+
     @When("User clicks Evening Dress")
     public void userClicksEveningDress() {
-        searchingPage.eveningDress.click();
+        BrowserUtils.sleep(5);
+       tShirtPage.eveningDress.click();
+        BrowserUtils.sleep(15);
     }
+
     @When("User clicks the S size")
     public void userClicksTheSSize() {
-        searchingPage.SSize.click();
-        BrowserUtils.sleep(5);
+        tShirtPage.SSize.click();
+        BrowserUtils.sleep(10);
 
     }
+
     @When("User clicks the Beige colour")
     public void userClicksTheBeigeColour() {
-        searchingPage.BeigeColor.click();
-        BrowserUtils.sleep(5);
-    }
-    @When("User clicks proceed to checkout button")
-    public void userClicksProceedToCheckoutButton() {
-        searchingPage.proceedCheckout.click();
-        BrowserUtils.sleep(5);
+        tShirtPage.BeigeColor.click();
+        BrowserUtils.sleep(10);
     }
 
-    @When("User clicks {string}")
-    public void userClicks(String summerDress) {
-
-    }
-
-    @When("User clicks the orange colour")
-    public void userClicksTheOrangeColour() {
-        searchingPage.OrangeColor.click();
-        BrowserUtils.sleep(5);
-
-    }
-
-
-    @When("User removes Printed Dress")
-    public void userRemovesPrintedDress() {
-        BrowserUtils.sleep(5);
-        searchingPage.removeButton.click();
-    }
-
-    @When("User add the a Faded Short Sleeve T-Shirts")
-    public void userAddTheAFadedShortSleeveTShirts() {
-        BrowserUtils.sleep(5);
-        searchingPage.addButton.click();
-    }
 
 
 }
+
+
