@@ -155,6 +155,13 @@ public class SearchFunctionalityStepDef {
         shoppingChartPage.TshirtPrize.isDisplayed();
         BrowserUtils.sleep(5);
     }
+
+
+    @Then("User sees the card total is {string}")
+    public void userSeesTheCardTotalIs(String expectedResult) {
+        String actualResult=shoppingChartPage.totalPrize.getText();
+        Assert.assertEquals(expectedResult,actualResult);
+    }
 }
 
 
